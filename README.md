@@ -32,11 +32,7 @@ docker run --rm -it ghcr.io/thaitype/ansible:latest ansible --version
 ### Run Ansible Playbook from Current Directory
 
 ```bash
-docker run --rm -it \
-  -v "$(pwd)":/work \
-  -w /work \
-  ghcr.io/thaitype/ansible:latest \
-  ansible-playbook playbook.yml
+docker run --rm -it -v $(pwd):/work -w /work --entrypoint ansible-playbook ghcr.io/thaitype/ansible playbook.yml
 ```
 
 ### Run Against Windows Hosts (via pywinrm)
